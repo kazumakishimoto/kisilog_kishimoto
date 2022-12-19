@@ -14,7 +14,16 @@ class CreateShopsTable extends Migration
     public function up()
     {
         Schema::create('shops', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('name')->unique();
+            $table->bigInteger('tel')->nullable();
+            $table->text('address')->nullable();
+            $table->text('map')->nullable();
+            $table->string('authority');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

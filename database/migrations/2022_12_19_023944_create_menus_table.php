@@ -14,7 +14,11 @@ class CreateMenusTable extends Migration
     public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('shop_id')->unsigned();
+            $table->text('body');
+            $table->bigInteger('price');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
