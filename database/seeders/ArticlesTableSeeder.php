@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ArticlesTableSeeder extends Seeder
 {
@@ -13,6 +16,12 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('articles')->insert([
+            'user_id' => 1,
+            'body' => 'sample',
+            'image' => 'images/sample.png',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

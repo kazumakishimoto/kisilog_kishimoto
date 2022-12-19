@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class BannersTableSeeder extends Seeder
 {
@@ -13,6 +16,11 @@ class BannersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('banners')->insert([
+            'shop_id' => 1,
+            'body' => 'sample',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
