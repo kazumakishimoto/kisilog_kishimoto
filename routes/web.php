@@ -19,6 +19,7 @@
 # ユーザー新規登録、ログイン、ログアウト
 Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*
 |--------------------------------------------------------------------------
 | 一般ユーザー機能
