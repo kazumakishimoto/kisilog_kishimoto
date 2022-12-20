@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Models\Administrator;
+use App\Models\Administrator;
 use Illuminate\Http\Request;
 
-class AdministratorController extends Controller
-{
+class AdministratorController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -22,8 +20,7 @@ class AdministratorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -33,30 +30,27 @@ class AdministratorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Models\Administrator  $administrator
+     * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrator $administrator)
-    {
+    public function show(Administrator $administrator) {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Models\Administrator  $administrator
+     * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrator $administrator)
-    {
+    public function edit(Administrator $administrator) {
         //
     }
 
@@ -64,22 +58,20 @@ class AdministratorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Models\Administrator  $administrator
+     * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrator $administrator)
-    {
+    public function update(Request $request, Administrator $administrator) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Models\Administrator  $administrator
+     * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrator $administrator)
-    {
+    public function destroy(Administrator $administrator) {
         //
     }
 }
