@@ -2,11 +2,9 @@
 @section('content')
 <div class="container text-center">
     <h1 class="text-danger">【飲食店】食べログ</h1>
-    <hr size="01" color="BLUE">
-    <p>
-            <font size="5">MENU</font>
-        </p>
-    <hr size="2" color="BLACK">
+    <hr color="BLUE">
+    <h2>MENU</h2>
+    <hr color="BLACK">
     <table class="mx-auto">
         <tr>
             <td>
