@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【ユーザー】口コミ一覧</h1>
-    <hr color="blue">
-    <div class="container">
-        <ul>
-            <li>星：</li>
-            <li>名前：</li>
-            <li>本文：</li>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+<div class="container text-center">
+    <h1 class="text-primary">【ユーザー】口コミ一覧</h1>
+    <hr color="BLUE">
+    <table class="table table-striped mx-auto">
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>本文</th>
+                <th>画像</th>
+                <th>メニュー</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($articles as $article)
+            <tr>
+                <th>{{ $article->user->name }}</th>
+                <th>{{ $article->body }}</th>
+                <th>{{ $article->image }}</th>
+                <th><a href="{{ route("articles.edit", ['article'=> $article]) }}">更新</a></th>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+@endsection

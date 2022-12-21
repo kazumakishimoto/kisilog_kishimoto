@@ -1,4 +1,3 @@
-hoge
 <!DOCTYPE html>
 <html>
 <head>
