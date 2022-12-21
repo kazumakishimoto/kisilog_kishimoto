@@ -9,13 +9,12 @@
         <tr>
             <td>
                 <a href="">【プロフィール】</a>
-                {{-- <a href="{{ route('users.show', ['name' => $person->name]) }}">【プロフィール】</a> --}}
+                {{--  <a href="{{ route('users.show', ['name' => $user->name]) }}">【プロフィール】</a>  --}}
             </td>
         </tr>
         <tr>
             <td>
-                <a href="">【飲食店一覧】</a>
-                {{-- <a href="{{ route('shops.index') }}">【飲食店一覧】</a> --}}
+                <a href="{{ route('shops.index') }}">【飲食店一覧】</a>
             </td>
         </tr>
     </table>
