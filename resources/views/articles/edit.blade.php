@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【ユーザー】口コミ編集</h1>
-    <hr color="blue">
-    <div class="container">
-        <ul>
-            <form action="">
-                星<input type="text"><br>
-                名前<input type="text"><br>
-                本文<input type="text"><br>
-                <button type="submit">更新</button>
-                <button type="submit">削除</button>
-            </form>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+
+<div class="container text-center">
+    <h1 class="text-primary">【ユーザー】口コミ更新</h1>
+    <hr color="BLUE">
+    <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}" enctype="multipart/form-data">
+        @csrf
+        {{-- <div class="md-form">
+            <label>タイトル</label>
+            <input type="text" name="title" class="form-control" required value="{{ $article->title ?? old('title') }}">
+        </div> --}}
+
+        <div class="form-group">
+            <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ $article->body ?? old('body') }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="image"></label>
+            <input id="image" type="file" name="image" accept="image/*" onchange="previewImage(this);">
+        </div>
+        <button type="submit" class="btn blue-gradient btn-block">更新する</button>
+</div>
+
+@endsection
