@@ -12,7 +12,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('menus.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('menus.create');
     }
 
     /**
@@ -31,17 +31,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Menu $menu) {
-        //
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -51,7 +41,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Menu $menu) {
-        //
+        return view('menus.edit');
     }
 
     /**
@@ -62,7 +52,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Menu $menu) {
-        //
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -72,6 +62,6 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Menu $menu) {
-        //
+        return redirect()->route('menus.index');
     }
 }

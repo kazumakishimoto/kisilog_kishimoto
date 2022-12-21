@@ -44,10 +44,8 @@ Route::middleware('auth')->group(function () {
 });
 
 # 口コミ機能(CRUD)
-Route::get('/', 'ArticleController@index')->name('articles.index');
-Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
-Route::resource('/articles', 'ArticleController')->only(['show']);
-
+Route::resource('/articles', 'ArticleController')->except(['index'])->middleware('auth');
+Route::resource('/articles', 'ArticleController', ['except' => ['show']]);
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +54,8 @@ Route::resource('/articles', 'ArticleController')->only(['show']);
 */
 # 飲食店ユーザー
 Route::prefix('shops')->name('shops.')->group(function () {
+    // ユーザー詳細
+    Route::get('/', 'ShopController@index')->name('index');
     // ユーザー詳細
     Route::get('/{name}', 'ShopController@show')->name('show');
 });
@@ -71,9 +71,8 @@ Route::middleware('auth')->group(function () {
 });
 
 # メニュー機能(CRUD)
-Route::get('/', 'MenuController@index')->name('menus.index');
-Route::resource('/menus', 'MenuController')->except(['index', 'show'])->middleware('auth');
-Route::resource('/menus', 'MenuController')->only(['show']);
+Route::resource('/menus', 'MenuController')->except(['index'])->middleware('auth');
+Route::resource('/menus', 'MenuController', ['except' => ['show']]);
 
 /*
 |--------------------------------------------------------------------------

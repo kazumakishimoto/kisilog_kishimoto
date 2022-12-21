@@ -12,7 +12,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('reservations.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('reservations.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        return redirect()->route('reservations.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Reservation $reservation) {
-        //
+        return view('reservations.show');
     }
 
     /**
@@ -51,7 +51,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Reservation $reservation) {
-        //
+        return view('reservations.edit');
     }
 
     /**
@@ -62,7 +62,7 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Reservation $reservation) {
-        //
+        return redirect()->route('reservations.index');
     }
 
     /**
@@ -72,6 +72,6 @@ class ReservationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Reservation $reservation) {
-        //
+        return redirect()->route('reservations.index');
     }
 }

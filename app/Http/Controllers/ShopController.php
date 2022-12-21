@@ -12,26 +12,7 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
+        return view('shops.index');
     }
 
     /**
@@ -41,7 +22,7 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Shop $shop) {
-        //
+        return view('shops.show');
     }
 
     /**
@@ -51,7 +32,7 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Shop $shop) {
-        //
+        return view('shops.edit');
     }
 
     /**
@@ -62,16 +43,6 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Shop $shop) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Shop $shop) {
-        //
+        return redirect()->route('shops.index');
     }
 }

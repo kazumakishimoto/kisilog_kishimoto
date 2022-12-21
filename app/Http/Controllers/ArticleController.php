@@ -12,7 +12,7 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('articles.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -31,17 +31,7 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Article $article) {
-        //
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -51,7 +41,7 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article) {
-        //
+        return view('articles.edit');
     }
 
     /**
@@ -62,7 +52,7 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Article $article) {
-        //
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -72,6 +62,6 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Article $article) {
-        //
+        return redirect()->route('articles.index');
     }
 }

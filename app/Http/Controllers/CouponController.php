@@ -12,7 +12,7 @@ class CouponController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('coupons.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class CouponController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('coupons.create');
     }
 
     /**
@@ -31,47 +31,6 @@ class CouponController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Coupon  $coupon
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Coupon $coupon) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Coupon  $coupon
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Coupon $coupon) {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Coupon  $coupon
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Coupon $coupon) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Coupon  $coupon
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Coupon $coupon) {
-        //
+        return redirect()->route('coupons.index');
     }
 }
