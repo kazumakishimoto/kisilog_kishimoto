@@ -1,22 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>menuList</title>
-</head>
-<body>
-    <h1>【飲食店】食べログ</h1>
-    <hr color="red">
-    <div class="container">
-        <ul>
-            <li><a href="./users/show.blade.php">プロフィール</a></li>
-            <li><a href="./reservations/index.blade.php">予約一覧</a></li>
-            <li><a href="./coupons/create.blade.php">クーポン作成</a></li>
-            <li><a href="./menus/index.blade.php">メニュー一覧</a></li>
-            <li><a href="./menus/create.blade.php">メニュー作成</a></li>
-            <li><a href="./banner.blade.php">バナー作成</a></li>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+<div class="container text-center">
+    <h1 class="text-danger">【飲食店】食べログ</h1>
+    <hr size="01" color="BLUE">
+    <p>
+            <font size="5">MENU</font>
+        </p>
+    <hr size="2" color="BLACK">
+    <table class="mx-auto">
+        <tr>
+            <td>
+                <a href="">【プロフィール】</a>
+                {{-- <a href="{{ route('users.show', ['name' => $person->name]) }}">【プロフィール】</a> --}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">【予約一覧】</a>
+                {{-- <a href="{{ route('reservations.index') }}">【飲食店一覧】</a> --}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">【クーポン作成】</a>
+                {{-- <a href="{{ route('coupons.create') }}">【飲食店一覧】</a> --}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">【メニュー一覧】</a>
+                {{-- <a href="{{ route('menus.index') }}">【飲食店一覧】</a> --}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">【メニュー作成】</a>
+                {{-- <a href="{{ route('menus.create') }}">【飲食店一覧】</a> --}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">【バナー作成】</a>
+                {{-- <a href="{{ route('banners.create') }}">【飲食店一覧】</a> --}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+@endsection
