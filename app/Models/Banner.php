@@ -10,6 +10,6 @@ class Banner extends Model {
     // use HasFactory;
 
     public function shop(): BelongsTo {
-        return $this->belongsTo('App\Models\Shop');
+        return $this->belongsTo('App\Models\User');
     }
 }

@@ -9,7 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Menu extends Model {
     // use HasFactory;
 
-    public function shop(): BelongsTo {
-        return $this->belongsTo('App\Models\Shop');
+    protected $fillable = [
+        'name',
+        'price',
+        'image',
+    ];
+
+    public function user(): BelongsTo {
+        return $this->belongsTo('App\Models\User');
     }
 }

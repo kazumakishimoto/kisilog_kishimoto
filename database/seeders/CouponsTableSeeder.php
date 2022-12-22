@@ -17,7 +17,7 @@ class CouponsTableSeeder extends Seeder
     public function run()
     {
         DB::table('coupons')->insert([
-            'shop_id' => 1,
+            'user_id' => 1,
             'body' => 'example',
             'expiration' => now(),
             'created_at' => now(),

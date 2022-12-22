@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller {
     /**
@@ -12,7 +14,13 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('menus.index');
+        $menus = Menu::all();
+
+        $data = [
+            'menus' => $menus,
+        ];
+
+        return view('menus.index', $data);
     }
 
     /**
@@ -30,7 +38,19 @@ class MenuController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request,Menu $menu) {
+        $menu->user_id = $request->user()->id;
+        $all_request = $request->all();
+
+        // 画像アップロード
+        // if (isset($all_request['image'])) {
+        //     $image = $request->file('image');
+        //     $path = Storage::disk('s3')->putFile('image', $image, 'public');
+        //     $all_request['image'] = Storage::disk('s3')->url($path);
+        // }
+
+        $menu->fill($all_request)->save();
+
         return redirect()->route('menus.index');
     }
 
@@ -41,7 +61,11 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Menu $menu) {
-        return view('menus.edit');
+        $data = [
+            'menu' => $menu,
+        ];
+
+        return view('menus.edit', $data);;
     }
 
     /**
@@ -52,6 +76,18 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Menu $menu) {
+        $menu->user_id = $request->user()->id;
+        $all_request = $request->all();
+
+        // 画像アップロード
+        // if (isset($all_request['image'])) {
+        //     $image = $request->file('image');
+        //     $path = Storage::disk('s3')->putFile('image', $image, 'public');
+        //     $all_request['image'] = Storage::disk('s3')->url($path);
+        // }
+
+        $menu->fill($all_request)->save();
+
         return redirect()->route('menus.index');
     }
 
@@ -62,6 +98,7 @@ class MenuController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Menu $menu) {
+        $menu->delete();
         return redirect()->route('menus.index');
     }
 }

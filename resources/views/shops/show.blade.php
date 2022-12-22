@@ -2,10 +2,14 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-primary text-center">【ユーザー】飲食店一覧</h1>
+    <h1 class="text-primary text-center">【ユーザー】飲食店詳細</h1>
     <hr color="BLUE">
     <form method="GET" action="{{ route('shops.edit', ['name' => $name]) }}" enctype="multipart/form-data">
         @csrf
+        <div class="card-text">
+            <label>[メニュー]</label>
+            <a href="{{ route("menus.index", ['name'=> $shop->name]) }}">詳細</a>
+        </div>
         <div class="card-text">
             <label>[名前]</label>
             <p>{{ $shop->name }}</p>

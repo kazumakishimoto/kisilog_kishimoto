@@ -17,7 +17,7 @@ class BannersTableSeeder extends Seeder
     public function run()
     {
         DB::table('banners')->insert([
-            'shop_id' => 1,
+            'user_id' => 1,
             'body' => 'example',
             'created_at' => now(),
             'updated_at' => now(),

@@ -1,30 +1,26 @@
 @extends('app')
 @section('content')
 <div class="container text-center">
-    <h1 class="text-primary">【ユーザー】口コミ一覧</h1>
+    <h1 class="text-primary">【ユーザー】メニュー一覧</h1>
     <hr color="BLUE">
     <table class="table table-striped mx-auto">
         <thead>
             <tr>
-                <th>あ</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>[品名]</th>
+                <th>[価格]</th>
+                <th>[画像]</th>
+                <th>[メニュー]</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($menus as $menu)
             <tr>
-                <th>1</th>
-                <td>Hanako</td>
-                <td>Qiita</td>
-                <td>@Hanaq</td>
+                <th>{{ $menu->name }}</th>
+                <th>{{ $menu->price }}</th>
+                <th>{{ $menu->image }}</th>
+                <th><a href="{{ route("menus.edit", ['menu'=> $menu]) }}">編集</a></th>
             </tr>
-            <tr>
-                <th>2</th>
-                <td>Taro</td>
-                <td>Qiita</td>
-                <td>@TaroQ</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
