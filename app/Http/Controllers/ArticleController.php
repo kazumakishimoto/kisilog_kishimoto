@@ -30,11 +30,12 @@ class ArticleController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create(Article $article) {
         $user = Auth::user();
 
         $data = [
             'user' => $user,
+            'article' => $article,
         ];
 
         return view('articles.create', $data);
@@ -69,7 +70,10 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article) {
+        $user = Auth::user();
+        
         $data = [
+            'user' => $user,
             'article' => $article,
         ];
 

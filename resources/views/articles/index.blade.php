@@ -6,10 +6,10 @@
     <table class="table table-striped mx-auto">
         <thead>
             <tr>
-                <th>名前</th>
-                <th>本文</th>
-                <th>画像</th>
-                <th>メニュー</th>
+                <th>[名前]</th>
+                <th>[本文]</th>
+                <th>[画像]</th>
+                <th>[メニュー]</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
                 <th>{{ $article->user->name }}</th>
                 <th>{{ $article->body }}</th>
                 <th>{{ $article->image }}</th>
-                <th><a href="{{ route("articles.edit", ['article'=> $article]) }}">更新</a></th>
+                <th><a href="{{ route("articles.edit", ['article'=> $article]) }}">編集</a></th>
             </tr>
             @endforeach
         </tbody>

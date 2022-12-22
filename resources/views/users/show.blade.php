@@ -31,6 +31,7 @@
             <p>{{ $user->image }}</p>
         </div>
         <button type="submit" class="btn blue-gradient btn-block">編集する</button>
+    </form>
 </div>
 
 @endsection

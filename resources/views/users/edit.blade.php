@@ -30,6 +30,7 @@
             <input id="image" type="file" name="image" accept="image/*" onchange="previewImage(this);">
         </div>
         <button type="submit" class="btn blue-gradient btn-block">更新する</button>
+    </form>
 </div>
 
 @endsection
