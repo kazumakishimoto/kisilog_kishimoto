@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-primary text-center">【共通】プロフィール編集</h1>
+    <h1 class="text-success text-center">【共通】プロフィール編集</h1>
     <hr color="BLUE">
     <form method="POST" action="{{ route('users.update', ['name' => $name]) }}" enctype="multipart/form-data">
         @method('patch')

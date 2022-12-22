@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-primary text-center">【飲食店】飲食店編集</h1>
+    <h1 class="text-danger text-center">【飲食店】飲食店編集</h1>
     <hr color="BLUE">
     <form method="POST" action="{{ route('shops.update', ['name' => $name]) }}" enctype="multipart/form-data">
         @method('patch')
