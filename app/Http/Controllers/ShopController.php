@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Article;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,13 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('shops.index');
+        $shops = Shop::all();
+
+        $data = [
+            'shops' => $shops,
+        ];
+
+        return view('shops.index', $data);
     }
 
     /**
@@ -22,7 +30,15 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Shop $shop) {
-        return view('shops.show');
+        $shop = Shop::find(1);
+        $name = $shop->name;
+
+        $data = [
+            'shop' => $shop,
+            'name' => $name,
+        ];
+
+        return view('shops.show', $data);
     }
 
     /**
@@ -32,7 +48,15 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Shop $shop) {
-        return view('shops.edit');
+        $shop = Shop::find(1);
+        $name = $shop->name;
+
+        $data = [
+            'shop' => $shop,
+            'name' => $name,
+        ];
+
+        return view('shops.edit', $data);
     }
 
     /**
@@ -43,6 +67,16 @@ class ShopController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Shop $shop) {
-        return redirect()->route('shops.index');
+        $shop = Shop::find(1);
+        $name = $shop->name;
+        $all_request = $request->all();
+
+        $shop->fill($all_request)->save();
+
+        $data = [
+            "name" => $name
+        ];
+
+        return redirect()->route('shops.show', $data);
     }
 }

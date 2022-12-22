@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【ユーザー】飲食店一覧</h1>
-    <hr color="blue">
-    <div class="container">
-        <ul>
-            <li>飲食店A</li>
-            <li>飲食店B</li>
-            <li>飲食店C</li>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+<div class="container text-center">
+    <h1 class="text-primary">【ユーザー】飲食店一覧</h1>
+    <hr color="BLUE">
+    <table class="table table-striped mx-auto">
+        <thead>
+            <tr>
+                <th>[名前]</th>
+                <th>[住所]</th>
+                <th>[地図]</th>
+                <th>[メニュー]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($shops as $shop)
+            <tr>
+                <th>{{ $shop->name }}</th>
+                <th>{{ $shop->address }}</th>
+                <th>{{ $shop->map }}</th>
+                <th><a href="{{ route("shops.show", ['name'=> $shop->name]) }}">詳細</a></th>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+@endsection
