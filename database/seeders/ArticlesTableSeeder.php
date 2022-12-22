@@ -18,8 +18,8 @@ class ArticlesTableSeeder extends Seeder
     {
         DB::table('articles')->insert([
             'user_id' => 1,
-            'body' => 'sample',
-            'image' => 'images/sample.png',
+            'body' => 'example',
+            'image' => 'images/example.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

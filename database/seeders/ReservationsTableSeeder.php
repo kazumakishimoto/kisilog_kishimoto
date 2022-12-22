@@ -18,7 +18,7 @@ class ReservationsTableSeeder extends Seeder
     {
         DB::table('reservations')->insert([
             'user_id' => 1,
-            'body' => 'sample',
+            'body' => 'example',
             'number' => '2',
             'datetime' => now(),
             'created_at' => now(),

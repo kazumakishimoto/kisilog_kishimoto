@@ -18,7 +18,7 @@ class BannersTableSeeder extends Seeder
     {
         DB::table('banners')->insert([
             'shop_id' => 1,
-            'body' => 'sample',
+            'body' => 'example',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

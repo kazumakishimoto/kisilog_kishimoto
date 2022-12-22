@@ -17,12 +17,12 @@ class ShopsTableSeeder extends Seeder
     public function run()
     {
         DB::table('shops')->insert([
-            'name' => 'user',
+            'name' => 'shop',
             'tel' => '0612345678',
             'address' => 'Osaka',
             'map' => 'https://www.google.co.jp/maps/',
             'authority' => '飲食店',
-            'email' => 'sample@sample.com',
+            'email' => 'shop@example.com',
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
             'created_at' => now(),

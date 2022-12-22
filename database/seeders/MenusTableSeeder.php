@@ -18,9 +18,9 @@ class MenusTableSeeder extends Seeder
     {
         DB::table('menus')->insert([
             'shop_id' => 1,
-            'body' => 'sample',
+            'body' => 'example',
             'price' => '1000',
-            'image' => 'images/sample.png',
+            'image' => 'images/example.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
