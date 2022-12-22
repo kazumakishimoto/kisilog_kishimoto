@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BannerController extends Controller {
     /**
@@ -12,7 +14,13 @@ class BannerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('banners.index');
+        $banners = Banner::all();
+
+        $data = [
+            'banners' => $banners,
+        ];
+
+        return view('banners.index', $data);
     }
 
     /**
@@ -30,7 +38,12 @@ class BannerController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request,Banner $banner) {
+        $banner->user_id = $request->user()->id;
+        $all_request = $request->all();
+
+        $banner->fill($all_request)->save();
+
         return redirect()->route('banners.index');
     }
 }

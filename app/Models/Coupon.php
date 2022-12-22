@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Coupon extends Model {
     // use HasFactory;
 
+    protected $fillable = [
+        'body',
+        'expiration',
+    ];
+
     public function shop(): BelongsTo {
         return $this->belongsTo('App\Models\User');
     }

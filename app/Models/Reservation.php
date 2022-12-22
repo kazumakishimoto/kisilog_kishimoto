@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Reservation extends Model {
     // use HasFactory;
 
+    protected $fillable = [
+        'body',
+        'number',
+        'datetime',
+    ];
+
     public function user(): BelongsTo {
         return $this->belongsTo('App\Models\User');
     }

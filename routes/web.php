@@ -90,32 +90,17 @@ Route::prefix('administrator')->name('administrator.')->group(function () {
     Route::get('/{name}', 'AdministratorController@show')->name('show');
 });
 
-# 予約機能
-Route::prefix('reservation')->name('reservation.')->group(function () {
-    Route::middleware('auth')->group(function () {
-        Route::get('/index', 'ReservationController@index')->name('index');
-        Route::get('/create', 'ReservationController@create')->name('create');
-        Route::post('/store', 'ReservationController@store')->name('store');
-    });
-});
+# 予約機能(CRUD)
+Route::resource('/reservations', 'ReservationController')->except(['index'])->middleware('auth');
+Route::resource('/reservations', 'ReservationController', ['except' => ['show', 'update', 'destroy']]);
 
-# クーポン機能
-Route::prefix('coupons')->name('coupons.')->group(function () {
-    Route::middleware('auth')->group(function () {
-        Route::get('/index', 'CouponController@index')->name('index');
-        Route::get('/create', 'CouponController@create')->name('create');
-        Route::post('/store', 'CouponController@store')->name('store');
-    });
-});
+# クーポン機能(CRUD)
+Route::resource('/coupons', 'CouponController')->except(['index'])->middleware('auth');
+Route::resource('/coupons', 'CouponController', ['except' => ['show', 'update', 'destroy']]);
 
-# バナー機能
-Route::prefix('banners')->name('banners.')->group(function () {
-    Route::middleware('auth')->group(function () {
-        Route::get('/index', 'BannerController@index')->name('index');
-        Route::get('/create', 'BannerController@create')->name('create');
-        Route::post('/store', 'BannerController@store')->name('store');
-    });
-});
+# バナー機能(CRUD)
+Route::resource('/banners', 'BannerController')->except(['index'])->middleware('auth');
+Route::resource('/banners', 'BannerController', ['except' => ['show', 'update', 'destroy']]);
 
 # エラー処理
 Route::get('/error', function () {

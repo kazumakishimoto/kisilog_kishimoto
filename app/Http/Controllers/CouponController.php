@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coupon;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller {
     /**
@@ -12,7 +14,13 @@ class CouponController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('coupons.index');
+        $coupons = Coupon::all();
+
+        $data = [
+            'coupons' => $coupons,
+        ];
+
+        return view('coupons.index', $data);
     }
 
     /**
@@ -30,7 +38,12 @@ class CouponController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request,Coupon $coupon) {
+        $coupon->user_id = $request->user()->id;
+        $all_request = $request->all();
+
+        $coupon->fill($all_request)->save();
+
         return redirect()->route('coupons.index');
     }
 }

@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【飲食店】バナー作成</h1>
-    <hr color="red">
-    <div class="container">
-        <ul>
-            <form action="">
-                バナー名<input type="text"><br>
-                バナー内容<input type="text"><br>
-                <button type="submit">作成</button>
-            </form>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+
+<div class="container">
+    <h1 class="text-danger text-center">【飲食店】バナー作成</h1>
+    <hr color="BLUE">
+    <form method="POST" action="{{ route('banners.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="card-text">
+            <label>[クーポン]</label>
+            <textarea name="body" required class="form-control" rows="1" placeholder="">{{ $banner->body ?? old('body') }}</textarea>
+        </div>
+        <button type="submit" class="btn blue-gradient btn-block">作成する</button>
+</div>
+
+@endsection

@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【ユーザー】クーポン一覧</h1>
-    <hr color="blue">
-    <div class="container">
-        <ul>
-            <li>クーポン名：</li>
-            <li>クーポン内容：</li>
-            <li>使用期限：</li>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+<div class="container text-center">
+    <h1 class="text-primary">【ユーザー】クーポン一覧</h1>
+    <hr color="BLUE">
+    <table class="table table-striped mx-auto">
+        <thead>
+            <tr>
+                <th>[クーポン]</th>
+                <th>[使用期限]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($coupons as $coupon)
+            <tr>
+                <th>{{ $coupon->body }}</th>
+                <th>{{ $coupon->expiration }}</th>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+@endsection
