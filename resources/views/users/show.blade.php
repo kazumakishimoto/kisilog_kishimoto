@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【共通】プロフィール詳細</h1>
-    <hr color="green">
-    <div class="container">
-        <ul>
-            <li>店名</li>
-            <li>電話番号</li>
-            <li>住所等</li>
-            <li>地図</li>
-            <button type=""><a href="./edit.blade.php">編集</a></button>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+
+<div class="container">
+    <h1 class="text-primary text-center">【共通】プロフィール詳細</h1>
+    <hr color="BLUE">
+    <form method="GET" action="{{ route('users.edit', ['name' => $name]) }}" enctype="multipart/form-data">
+        @csrf
+        <div class="card-text">
+            <label>[名前]</label>
+            <p>{{ $user->name }}</p>
+        </div>
+        <div class="card-text">
+            <label>[年齢]</label>
+            <p>{{ $user->age }}</p>
+        </div>
+        <div class="card-text">
+            <label>[性別]</label>
+            <p>{{ $user->gender }}</p>
+        </div>
+        <div class="card-text">
+            <label>[自己紹介]</label>
+            <p>{{ $user->introduction }}</p>
+        </div>
+        <div class="card-text">
+            <label>[Eメール]</label>
+            <p>{{ $user->email }}</p>
+        </div>
+        <div class="card-text">
+            <label>[画像]</label>
+            <p>{{ $user->image }}</p>
+        </div>
+        <button type="submit" class="btn blue-gradient btn-block">編集する</button>
+</div>
+
+@endsection

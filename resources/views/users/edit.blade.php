@@ -1,23 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>hoge</title>
-</head>
-<body>
-    <h1>【共通】プロフィール編集</h1>
-    <hr color="green">
-    <div class="container">
-        <ul>
-            <form action="">
-                店名<input type="text"><br>
-                電話番号<input type="text"><br>
-                住所等<input type="text"><br>
-                地図<input type="text"><br>
-                <button type="submit">更新</button>
-            </form>
-        </ul>
-    </div>
-</body>
-</html>
+@extends('app')
+@section('content')
+
+<div class="container">
+    <h1 class="text-primary text-center">【共通】プロフィール編集</h1>
+    <hr color="BLUE">
+    <form method="POST" action="{{ route('users.update', ['name' => $name]) }}" enctype="multipart/form-data">
+        @method('patch')
+        @csrf
+        <div class="form-group">
+            <label>[名前]</label>
+            <p>{{ $user->name }}</p>
+        </div>
+        <div class="form-group">
+            <label>[年齢]</label>
+            <p>{{ $user->age }}</p>
+        </div>
+        <label>[性別]</label>
+        <p>{{ $user->gender }}</p>
+        <div class="form-group">
+            <label>[自己紹介]</label>
+            <textarea name="introduction" required class="form-control" rows="4" placeholder="本文">{{ $user->introduction ?? old('introduction') }}</textarea>
+        </div>
+        <div class="form-group">
+            <label>[Eメール]</label>
+            <textarea name="email" required class="form-control" rows="1" placeholder="本文">{{ $user->email ?? old('email') }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="image"></label>
+            <input id="image" type="file" name="image" accept="image/*" onchange="previewImage(this);">
+        </div>
+        <button type="submit" class="btn blue-gradient btn-block">更新する</button>
+</div>
+
+@endsection
