@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*
 |--------------------------------------------------------------------------
-| 一般ユーザー機能
+| 一般ユーザー
 |--------------------------------------------------------------------------
 */
 # 一般ユーザー
@@ -79,10 +79,6 @@ Route::resource('/menus', 'MenuController', ['except' => ['show']]);
 | 共通ユーザー
 |--------------------------------------------------------------------------
 */
-# トップページ
-Route::get('/', function () {
-    return view('menuList');
-});
 
 # 管理者ユーザー機能
 Route::prefix('administrator')->name('administrator.')->group(function () {
