@@ -18,6 +18,7 @@
                 <th>{{ $menu->name }}</th>
                 <th>{{ $menu->price }}</th>
                 <th>{{ $menu->image }}</th>
+                {{--  <th><img src="{{ asset($menu->image) }}" width="200px" class="mt-3 mb-1"></th>  --}}
                 <th><a href="{{ route("menus.edit", ['menu'=> $menu]) }}">編集</a></th>
             </tr>
             @endforeach

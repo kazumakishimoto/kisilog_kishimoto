@@ -18,6 +18,7 @@
                 <th>{{ $article->user->name }}</th>
                 <th>{{ $article->body }}</th>
                 <th>{{ $article->image }}</th>
+                {{--  <th><img src="{{ asset($article->image) }}" width="200px" class="mt-3 mb-1"></th>  --}}
                 <th><a href="{{ route("articles.edit", ['article'=> $article]) }}">編集</a></th>
             </tr>
             @endforeach

@@ -29,6 +29,7 @@
         <div class="card-text">
             <label>[画像]</label>
             <p>{{ $user->image }}</p>
+            {{-- <img src="{{ asset($user->image) }}" width="200px" class="mt-3 mb-1"> --}}
         </div>
         <button type="submit" class="btn blue-gradient btn-block">編集する</button>
     </form>

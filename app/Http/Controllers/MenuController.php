@@ -43,11 +43,11 @@ class MenuController extends Controller {
         $all_request = $request->all();
 
         // 画像アップロード
-        // if (isset($all_request['image'])) {
-        //     $image = $request->file('image');
-        //     $path = Storage::disk('s3')->putFile('image', $image, 'public');
-        //     $all_request['image'] = Storage::disk('s3')->url($path);
-        // }
+        if (isset($all_request['image'])) {
+            $image = $request->file('image');
+            $path = Storage::disk('public')->putFile('image', $image, 'public');
+            $all_request['image'] = Storage::disk('public')->url($path);
+        }
 
         $menu->fill($all_request)->save();
 
@@ -80,11 +80,11 @@ class MenuController extends Controller {
         $all_request = $request->all();
 
         // 画像アップロード
-        // if (isset($all_request['image'])) {
-        //     $image = $request->file('image');
-        //     $path = Storage::disk('s3')->putFile('image', $image, 'public');
-        //     $all_request['image'] = Storage::disk('s3')->url($path);
-        // }
+        if (isset($all_request['image'])) {
+            $image = $request->file('image');
+            $path = Storage::disk('public')->putFile('image', $image, 'public');
+            $all_request['image'] = Storage::disk('public')->url($path);
+        }
 
         $menu->fill($all_request)->save();
 
