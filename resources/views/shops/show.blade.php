@@ -4,12 +4,18 @@
 <div class="container">
     <h1 class="text-primary text-center">【ユーザー】飲食店詳細</h1>
     <hr color="BLUE">
+    <table class="table table-striped mx-auto text-center">
+        <tbody>
+            <tr>
+                <th><a href="{{ route("menus.index") }}">[メニュー]</a></th>
+                <th><a href="{{ route("articles.index") }}">[口コミ]</a></th>
+                <th><a href="{{ route("reservations.create") }}">[予約する]</a></th>
+                <th><a href="{{ route("coupons.index") }}">[クーポン]</a></th>
+            </tr>
+        </tbody>
+    </table>
     <form method="GET" action="{{ route('shops.edit', ['name' => $name]) }}" enctype="multipart/form-data">
         @csrf
-        <div class="card-text">
-            <label>[メニュー]</label>
-            <a href="{{ route("menus.index", ['name'=> $shop->name]) }}">詳細</a>
-        </div>
         <div class="card-text">
             <label>[名前]</label>
             <p>{{ $shop->name }}</p>

@@ -16,9 +16,11 @@ class ArticleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        $user = Auth::user();
         $articles = Article::all();
 
         $data = [
+            'user' => $user,
             'articles' => $articles,
         ];
 
@@ -47,7 +49,7 @@ class ArticleController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Article $article) {
+    public function store(Request $request, Article $article) {
         $article->user_id = $request->user()->id;
         $all_request = $request->all();
 

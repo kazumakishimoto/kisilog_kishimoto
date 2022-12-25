@@ -3,6 +3,7 @@
 <div class="container text-center">
     <h1 class="text-primary">【ユーザー】口コミ一覧</h1>
     <hr color="BLUE">
+    <button type="button" class="btn btn-primary"><a class="text-decoration-none text-reset" href="{{ route("articles.create") }}">口コミ投稿</a></button>
     <table class="table table-striped mx-auto">
         <thead>
             <tr>
