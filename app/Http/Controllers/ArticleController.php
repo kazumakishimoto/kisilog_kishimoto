@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -49,7 +50,7 @@ class ArticleController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Article $article) {
+    public function store(ArticleRequest $request, Article $article) {
         $article->user_id = $request->user()->id;
         $all_request = $request->all();
 
@@ -89,7 +90,7 @@ class ArticleController extends Controller {
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article) {
+    public function update(ArticleRequest $request, Article $article) {
         $article->user_id = $request->user()->id;
         $all_request = $request->all();
 

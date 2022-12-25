@@ -4,6 +4,9 @@
 <div class="container">
     <h1 class="text-primary text-center">【ユーザー】口コミ作成</h1>
     <hr color="BLUE">
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
     <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="card-text">

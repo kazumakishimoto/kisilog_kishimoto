@@ -4,6 +4,9 @@
 <div class="container">
     <h1 class="text-primary text-center">【ユーザー】口コミ更新</h1>
     <hr color="BLUE">
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
     <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}" enctype="multipart/form-data">
         @method('patch')
         @csrf
