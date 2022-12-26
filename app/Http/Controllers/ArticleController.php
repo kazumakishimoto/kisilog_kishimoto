@@ -63,6 +63,9 @@ class ArticleController extends Controller {
             $image = $request->file('image');
             $path = Storage::disk('public')->putFile('image', $image, 'public');
             $all_request['image'] = Storage::disk('public')->url($path);
+
+            // ローカル環境の場合
+            $all_request['image'] = substr($all_request['image'],17);
         }
 
         $article->fill($all_request)->save();
@@ -103,6 +106,9 @@ class ArticleController extends Controller {
             $image = $request->file('image');
             $path = Storage::disk('public')->putFile('image', $image, 'public');
             $all_request['image'] = Storage::disk('public')->url($path);
+
+            // ローカル環境の場合
+            $all_request['image'] = substr($all_request['image'], 17);
         }
 
         $article->fill($all_request)->save();
